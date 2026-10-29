@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Sobre{% endblock %}
+
+{% block conteudo %}
+    <section class="sobre">
+        <div>
+            <p class="etiqueta">Nossa história</p>
+            <h1>Feito devagar, usado por muito tempo</h1>
+            <p>O Atelier Raiz nasceu da vontade de fazer roupas que durem mais do que uma temporada. Cada modelagem é pensada para caber bem, envelhecer com elegância e combinar com o que você já tem no armário.</p>
+            <p>Trabalhamos com algodão, linho e sarja de origem responsável, em pequenas produções que reduzem o desperdício.</p>
+            <p>Este site é um projeto de estudo desenvolvido com Flask, com cadastro e verificação de idade para compras.</p>
+        </div>
+        <img src="{{ url_for('static', filename='imgs/calca-chino.svg') }}" alt="Calça chino bege">
+    </section>
+
+    <section class="valores">
+        <div class="card">
+            <h3>Tecidos naturais</h3>
+            <p>Fibras leves que respiram e ficam mais agradáveis com o uso.</p>
+        </div>
+        <div class="card">
+            <h3>Modelagem atual</h3>
+            <p>Cortes pensados para diferentes corpos, com numeração ampla.</p>
+        </div>
+        <div class="card">
+            <h3>Produção consciente</h3>
+            <p>Lotes pequenos e pouco desperdício de tecido.</p>
+        </div>
+    </section>
+
+    <p><a class="btn" href="{{ url_for('inicio') }}">Ver a coleção</a></p>
+{% endblock %}

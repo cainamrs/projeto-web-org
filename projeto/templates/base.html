@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Loja{% endblock %} | Atelier Raiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="topo">
+        <a href="{{ url_for('inicio') }}" class="logo">Atelier <span>Raiz</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('inicio') }}">Loja</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                <li><a href="{{ url_for('cadastro') }}">Cadastro</a></li>
+                <li><a href="{{ url_for('carrinho') }}">Sacola <span id="contador-carrinho" class="contador">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% block conteudo %}{% endblock %}
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape-colunas">
+            <div>
+                <h3>Atelier Raiz</h3>
+                <p>Roupas feitas com calma, tecidos naturais e modelagens que acompanham você.</p>
+            </div>
+            <div>
+                <h3>Navegue</h3>
+                <ul>
+                    <li><a href="{{ url_for('inicio') }}">Loja</a></li>
+                    <li><a href="{{ url_for('sobre') }}">Sobre nós</a></li>
+                    <li><a href="{{ url_for('carrinho') }}">Sacola</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Ajuda</h3>
+                <ul>
+                    <li><a href="#">Trocas e devoluções</a></li>
+                    <li><a href="#">Tabela de medidas</a></li>
+                    <li><a href="#">Fale conosco</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Redes</h3>
+                <ul>
+                    <li><a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="https://www.pinterest.com" target="_blank" rel="noopener">Pinterest</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 Atelier Raiz. Projeto de estudo.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

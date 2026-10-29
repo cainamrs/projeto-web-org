@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Loja{% endblock %}
+
+{% block conteudo %}
+    <section class="hero">
+        <div>
+            <p class="etiqueta">Coleção outono 2026</p>
+            <h1>Roupas que respiram com você</h1>
+            <p>Peças em tons naturais, tecidos leves e cortes pensados para o dia a dia. Escolha uma peça e veja os detalhes.</p>
+            <a class="btn" href="#colecao">Explorar a coleção</a>
+        </div>
+        <img class="hero-img" src="{{ url_for('static', filename='imgs/vestido-floral.svg') }}" alt="Vestido midi floral">
+    </section>
+
+    <section id="colecao">
+        <div class="secao-cabecalho">
+            <h2>Destaques</h2>
+            <a href="{{ url_for('sobre') }}" class="link-simples">Conheça nossa história →</a>
+        </div>
+
+        <div class="grade">
+            {% for p in produtos %}
+            <article class="produto-card">
+                <a href="{{ url_for('produto', produto_id=p.id) }}" class="imagem-link">
+                    <img src="{{ url_for('static', filename='imgs/' ~ p.imagem) }}" alt="{{ p.nome }}">
+                </a>
+                <span class="etiqueta">{{ p.categoria }}</span>
+                <h3>{{ p.nome }}</h3>
+                <p class="preco">R$ {{ "%.2f"|format(p.preco) }}</p>
+                <a class="link-simples" href="{{ url_for('produto', produto_id=p.id) }}">Ver detalhes →</a>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

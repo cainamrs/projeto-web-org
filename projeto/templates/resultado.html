@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Resultado do cadastro{% endblock %}
+
+{% block conteudo %}
+    <section class="resultado">
+        <p class="etiqueta">Resultado</p>
+        <h1>Olá, {{ nome }}</h1>
+
+        <div class="card">
+            <p>Você nasceu em <b>{{ ano_nascimento }}</b> e tem <b>{{ idade }}</b> anos.</p>
+
+            {% if maior_de_idade %}
+                <h2 class="status-ok">Cadastro aprovado</h2>
+                <p>Você já pode aproveitar a coleção e finalizar suas compras.</p>
+                <a class="btn" href="{{ url_for('inicio') }}">Ir para a loja</a>
+            {% else %}
+                <h2 class="status-negado">Cadastro não aprovado</h2>
+                <p>Compras são permitidas apenas para maiores de 18 anos.</p>
+            {% endif %}
+        </div>
+
+        <p><a class="link-simples" href="{{ url_for('cadastro') }}">Fazer outro cadastro →</a></p>
+    </section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Sacola{% endblock %}
+
+{% block conteudo %}
+    <h1>Sua sacola</h1>
+    <p>Confira os itens escolhidos antes de finalizar.</p>
+
+    <div class="card">
+        <ul id="lista-carrinho" class="lista-carrinho"></ul>
+        <p id="carrinho-vazio">Sua sacola está vazia. <a href="{{ url_for('inicio') }}">Escolher peças</a>.</p>
+        <p class="total">Total: <b id="total-carrinho">R$ 0,00</b></p>
+        <div class="acoes">
+            <button class="btn" id="btn-limpar">Esvaziar sacola</button>
+            <a class="link-simples" href="{{ url_for('cadastro') }}">Finalizar compra →</a>
+        </div>
+    </div>
+{% endblock %}

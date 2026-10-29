@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block titulo %}{{ produto.nome }}{% endblock %}
+
+{% block conteudo %}
+    <a href="{{ url_for('inicio') }}" class="voltar">← Voltar para a loja</a>
+
+    <section class="detalhe">
+        <div class="detalhe-imagem">
+            <img src="{{ url_for('static', filename='imgs/' ~ produto.imagem) }}" alt="{{ produto.nome }}">
+        </div>
+
+        <div class="detalhe-info">
+            <span class="etiqueta">{{ produto.categoria }}</span>
+            <h1>{{ produto.nome }}</h1>
+            <p class="preco">R$ {{ "%.2f"|format(produto.preco) }}</p>
+            <p>{{ produto.descricao }}</p>
+
+            <div class="campo">
+                <label for="tamanho">Escolha o tamanho</label>
+                <select id="tamanho">
+                    {% for t in produto.tamanhos %}
+                    <option value="{{ t }}">{{ t }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button class="btn" id="btn-adicionar"
+                    data-id="{{ produto.id }}"
+                    data-nome="{{ produto.nome }}"
+                    data-preco="{{ produto.preco }}">
+                Adicionar à sacola
+            </button>
+            <p id="mensagem-carrinho" class="mensagem"></p>
+
+            <div class="cuidados">
+                <h3>Cuidados</h3>
+                <p>{{ produto.cuidados }}</p>
+                <a href="#" class="link-simples">Consultar tabela de medidas →</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
